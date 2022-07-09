@@ -3,7 +3,22 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   get "/" do
-    { message: "Good luck with your project!" }.to_json
+    "<h1>Watch List</h1>"
+  end
+
+  get "/genres" do
+    genres = Genre.all
+    genres.to_json
+  end
+
+  get "/movies" do
+    movies = Movie.all
+    movies.to_json
+  end
+
+  get "/users" do
+    users = User.all
+    users.to_json
   end
 
 end
