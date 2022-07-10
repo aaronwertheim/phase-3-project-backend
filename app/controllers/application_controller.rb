@@ -6,9 +6,9 @@ class ApplicationController < Sinatra::Base
     "<h1>Watch List</h1>"
   end
 
-  get "/genres" do
-    genres = Genre.all
-    genres.to_json
+  get "/categories" do
+    categories = Category.all
+    categories.to_json
   end
 
   get "/movies" do

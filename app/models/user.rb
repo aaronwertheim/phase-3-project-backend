@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
     has_many :movies
-    has_many :genres, through: :movies
+    has_many :categories, through: :movies
 
-    def create_movie(name, description, star_rating, genre)
+
+    def create_movie(name, description, star_rating, category)
         Movie.create(name: name, description: description, star_rating: star_rating, genre: genre, user: self)
     end
 

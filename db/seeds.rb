@@ -1,22 +1,25 @@
-Genre.destroy_all
+Category.destroy_all
 Movie.destroy_all
 User.destroy_all
 
-puts "Creating genres..."
-Genre.create(name: "Horror")
-Genre.create(name: "Action")
-Genre.create(name: "Comedy")
-Genre.create(name: "Drama")
-Genre.create(name: "Documentary")
+# Category.create(name: "Action")
+# Category.create(name: "Comedy")
+# Category.create(name: "Drama")
+# Category.create(name: "Documentary")
 
 puts "Creating users..."
 5.times do
     User.create(name: Faker::Games::SuperMario.character)
 end
 
+puts "Creating categories..."
+Category.create(name: "Watchlist")
+
 puts "Creating movies..."
 10.times do
-    Movie.create(name: Faker::Movie.title, description: Faker::Movie.quote, genre_id: Genre.all.ids.sample, star_rating: rand(5), user_id: User.all.ids.sample)
+    Movie.create(name: Faker::Movie.title, description: Faker::Movie.quote, category_id: Category.all.ids.sample, user_id: User.all.ids.sample, genre: Faker::Emotion.noun)
 end
+
+
 
 puts "✅ Done seeding!"
