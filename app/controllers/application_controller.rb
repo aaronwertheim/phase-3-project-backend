@@ -6,11 +6,6 @@ class ApplicationController < Sinatra::Base
     "<h1>Watch List</h1>"
   end
 
-  get "/categories" do
-    categories = Category.all
-    categories.to_json
-  end
-
   get "/movies" do
     movies = Movie.all
     movies.to_json
