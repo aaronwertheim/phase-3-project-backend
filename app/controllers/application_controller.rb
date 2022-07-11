@@ -1,3 +1,5 @@
+require 'pry'
+
 class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
@@ -20,6 +22,15 @@ class ApplicationController < Sinatra::Base
     movie = Movie.find(params[:id])
     movie.destroy
     movie.to_json
+  end
+
+  post "/movies" do
+    movie = Movie.create(
+    name: params[:name],
+    description: params[:description],
+    user_id: params[:user_id]
+  )
+  movie.to_json
   end
 
   get "/users" do
