@@ -33,6 +33,12 @@ class ApplicationController < Sinatra::Base
   movie.to_json
   end
 
+  patch '/movies/:id' do
+    movie = Movie.find(params[:id])
+    movie.update(movie_params)
+    movie.to_json
+  end
+
   get "/users" do
     users = User.all
     users.to_json
@@ -42,5 +48,21 @@ class ApplicationController < Sinatra::Base
     user = User.find(params[:id])
     user.to_json
   end
+
+  post "/users" do
+    user = User.create(
+    name: params[:name]
+  )
+  user.to_json
+  end
+
+
+  def movie_params
+    allowed_params = %w(name description)
+    params.select { |k,v| allowed_params.include?(k) }
+  end
+
+
+ 
 
 end
