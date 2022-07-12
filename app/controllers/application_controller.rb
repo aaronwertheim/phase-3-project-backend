@@ -60,6 +60,7 @@ class ApplicationController < Sinatra::Base
   def movie_params
     allowed_params = %w(name description)
     params.select { |k,v| allowed_params.include?(k) }
+    params.reject{|k, v| v.blank?}
   end
 
 
