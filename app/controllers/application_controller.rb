@@ -36,7 +36,7 @@ class ApplicationController < Sinatra::Base
 
   patch '/movies/:id' do
     movie = Movie.find(params[:id])
-    movie.update(movie_params)
+    movie.update(description: params[:description])
     movie.to_json
   end
 
@@ -59,7 +59,7 @@ class ApplicationController < Sinatra::Base
 
 
   def movie_params
-    allowed_params = %w(name description)
+    allowed_params = %w(description)
     params.select { |k,v| allowed_params.include?(k) }
     params.reject{|k, v| v.blank?}
   end
