@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2022_07_09_180509) do
     t.string "name"
     t.string "description"
     t.integer "user_id"
+    t.string "poster_url"
   end
 
   create_table "users", force: :cascade do |t|

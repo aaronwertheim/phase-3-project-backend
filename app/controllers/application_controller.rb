@@ -28,7 +28,8 @@ class ApplicationController < Sinatra::Base
     movie = Movie.create(
     name: params[:name],
     description: params[:description],
-    user_id: params[:user_id]
+    user_id: params[:user_id],
+    poster_url: params[:poster_url]
   )
   movie.to_json
   end
